@@ -12,7 +12,7 @@ module Rating
     belongs_to :scopeable, polymorphic: true
 
     validates :author, :resource, :value, presence: true
-    validates :value, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 100 }
+    validates :value, numericality: { greater_than_or_equal_to: -100, less_than_or_equal_to: 100 }
 
     validates :author_id, uniqueness: {
       case_sensitive: ::Rating::Config.validations['rate']['case_sensitive'],
